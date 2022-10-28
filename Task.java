@@ -65,9 +65,6 @@ public class Task {
             return true;
     }
 
-
-
-
     // Tiek pārveidota toString metode
     public String toString() {
         return "[ Nosaukums - " + this.name + " Vecums - " + this.age + " ID - " + this.id + " ]";
@@ -118,16 +115,16 @@ public class Task {
 
         // Itere cauri sarakstam un izprintē objektus kuri ir pilngadīgi un ID summu
         int sum = 0;
-        for(int i = 0; i < str.size(); i++){
-            if(str.get(i).isAdult(str.get(i).age) == true){
+        for (int i = 0; i < str.size(); i++) {
+            if (str.get(i).isAdult(str.get(i).age) == true) {
                 sum = sum + str.get(i).id;
-                System.out.println("Vards - "+str.get(i).name+" vecums - "+str.get(i).age);
+                System.out.println("Vards - " + str.get(i).name + " vecums - " + str.get(i).age);
             }
         }
         // Tiek izvadīta ID summa
-        System.out.println("ID summa - "+sum);
-        // Tiek parbaudits vai saraksts ir tukss. 
-        if(str2.isEmpty()){
+        System.out.println("ID summa - " + sum);
+        // Tiek parbaudits vai saraksts ir tukss.
+        if (str2.isEmpty()) {
             System.out.println("Saraksts ir tukss");
         }
         // Sarakstam tiek piešķirta vienāda kapacitāte ar objektu skaitu
