@@ -28,6 +28,30 @@ class Task3 {
         return myFile;
     }
 
+    // fileFolder metode kas noskaidro cik norādītajā mapē ir faili un cik
+    // apakšmapes.
+    public String fileFolder(String path) {
+        File fileFolder = new File(path);
+        // Iegūstam visus failu un apakšmapju nosaukumus dotajā mapē un ierakstam masīva
+        File[] files = fileFolder.listFiles();
+        int failuSkaits = 0;
+        int mapjuSkaits = 0;
+        // iterējam cauri masīvam un ar isFile() un isDirectory metodēm saskaitam cik if
+        // apakšmapas un cik ir faili
+        for (int i = 0; i < files.length; i++) {
+            // nosaka vai ir fails
+            if (files[i].isFile()) {
+                failuSkaits++;
+            }
+            // Nosauka vai ir mape
+            if (files[i].isDirectory()) {
+                mapjuSkaits++;
+            }
+        }
+        // Atgriež String ar failu un mapju skaitu.
+        return "Failu skaits mape - " + failuSkaits + " Apaksmapju skaits mape - " + mapjuSkaits;
+    }
+
     public int countLines() {
         int lines = 0;
         try {
@@ -77,6 +101,9 @@ class Task3 {
 
         // Izprintē rindu skaitu failā
         System.out.println(foo.countLines());
+
+        // Izprintē failu un mapju skaitu norādītajā mapē
+        System.out.println(foo.fileFolder(".\\codes\\"));
 
     }
 }
