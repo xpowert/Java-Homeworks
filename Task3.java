@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+// Importing all utility classes
+import java.util.*;
 
 class Task3 {
 
@@ -104,7 +105,7 @@ class Task3 {
                 for (String part : lines) {
                     lineSum = lineSum + Integer.parseInt(part);
                 }
-                System.out.println(count+" rindas summa ir " + lineSum);
+                System.out.println(count + " rindas summa ir " + lineSum);
                 // Katras rindas summa tiek pieskaitīta kopējai summai.
                 totalSum = totalSum + lineSum;
             }
@@ -117,6 +118,34 @@ class Task3 {
         }
 
         System.out.println("Visu skaitlu summa faila - " + totalSum);
+    }
+
+    public void uniqName() {
+        // Inicializējam File objektu, lai norādītu ceļu uz failu
+        File namesList = new File(".\\codes\\names.list");
+
+        // Inicializējam Set<String> sarakstu
+        Set<String> nameString = new HashSet<String>();
+        try {
+            // Inicializējam Scanner objektu, lai lasītu failu
+            Scanner sc = new Scanner(namesList);
+
+            // Iterē cauri faila rindām
+            while (sc.hasNextLine()) {
+                // Sarakstam tiek pievienoti vārdi no names.list faila
+                nameString.add(sc.nextLine());
+            }
+            // Aizver failu
+            sc.close();
+
+            // Kļūdas gadījuma, parāda kļūdu
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        // Tiek izprintēti visi unikālie vārdi sarakstā 
+        System.out.println(nameString);
+        // Tiek izprintēts unikālo vārdu skaits
+        System.out.println("Unikalo vardu skaits - "+nameString.size());
     }
 
     public static void main(String args[]) {
@@ -142,7 +171,10 @@ class Task3 {
         // Izprintē failu un mapju skaitu norādītajā mapē [ 2.UZD ]
         System.out.println(foo.fileFolder(".\\codes\\"));
 
+        // Izprintē katras rindas skaitļu summu un kopējo skaitļu summu
         foo.sumFile();
+
+        foo.uniqName();
 
     }
 }
