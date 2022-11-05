@@ -36,7 +36,8 @@ class Task3 {
         File[] files = fileFolder.listFiles();
         int failuSkaits = 0;
         int mapjuSkaits = 0;
-        // iterējam cauri masīvam un ar isFile() un isDirectory() metodēm saskaitam cik if
+        // iterējam cauri masīvam un ar isFile() un isDirectory() metodēm saskaitam cik
+        // if
         // apakšmapas un cik ir faili
         for (int i = 0; i < files.length; i++) {
             // nosaka vai ir fails
@@ -82,23 +83,30 @@ class Task3 {
         return fileName[0];
     }
 
-    // sumFIle() metode, lai saskaitītu numbers.txt faila skaitļu summu. 
-    public int sumFile(){
+    // sumFIle() metode, lai saskaitītu numbers.txt faila skaitļu summu.
+    public void sumFile() {
         int totalSum = 0;
         // Inicializējam File objektu, lai norādītu ceļu uz failu
         File numberFile = new File(".\\codes\\numbers.txt");
         try {
-             // Inicializējam Scanner objektu, lai lasītu failu
+            // Inicializējam Scanner objektu, lai lasītu failu
             Scanner sc = new Scanner(numberFile);
+            // Inicializējam count mainīgo, lai saskaitītu rindas
+            int count = 0;
             // Iterē cauri faila rindām
             while (sc.hasNextLine()) {
+                // Count saskaita cik rindas failā.
+                count++;
+                // Atdala katru ciparu rinda pēc tukšuma simboliem
                 String lines[] = sc.nextLine().split("\\s+");
                 int lineSum = 0;
-                for(String part: lines){
+                // for cikls kas iterē cauri katras rindas elementiem un saskaita tos
+                for (String part : lines) {
                     lineSum = lineSum + Integer.parseInt(part);
                 }
+                System.out.println(count+" rindas summa ir " + lineSum);
+                // Katras rindas summa tiek pieskaitīta kopējai summai.
                 totalSum = totalSum + lineSum;
-                //sc.nextLine();
             }
             // Aizver failu
             sc.close();
@@ -108,7 +116,7 @@ class Task3 {
             e.printStackTrace();
         }
 
-        return totalSum;
+        System.out.println("Visu skaitlu summa faila - " + totalSum);
     }
 
     public static void main(String args[]) {
@@ -131,10 +139,10 @@ class Task3 {
         // Izprintē rindu skaitu failā
         System.out.println(foo.countLines());
 
-        // Izprintē failu un mapju skaitu norādītajā mapē [ 2.UZD ] 
+        // Izprintē failu un mapju skaitu norādītajā mapē [ 2.UZD ]
         System.out.println(foo.fileFolder(".\\codes\\"));
 
-        System.out.println(foo.sumFile());
+        foo.sumFile();
 
     }
 }
