@@ -142,10 +142,10 @@ class Task3 {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        // Tiek izprintēti visi unikālie vārdi sarakstā 
+        // Tiek izprintēti visi unikālie vārdi sarakstā
         System.out.println(nameString);
         // Tiek izprintēts unikālo vārdu skaits
-        System.out.println("Unikalo vardu skaits - "+nameString.size());
+        System.out.println("Unikalo vardu skaits - " + nameString.size());
     }
 
     public static void main(String args[]) {
@@ -174,6 +174,7 @@ class Task3 {
         // Izprintē katras rindas skaitļu summu un kopējo skaitļu summu
         foo.sumFile();
 
+        // Izprintē visus unikālos vārdus un unikālo vārdu skaitu
         foo.uniqName();
 
     }
