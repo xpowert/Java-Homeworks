@@ -35,5 +35,12 @@ public class carDealer {
         dealers.add(dealer3);
         dealers.add(dealer2);
         dealers.add(dealer);
+
+        for(int i =0; i < dealers.size(); i++){
+            System.out.println("Dilera nosaukums - "+dealers.get(i).name+" Registracijas numurs - "+dealers.get(i).regnumber);
+            System.out.println("Dilera "+dealers.get(i).name+" piedavatais auto:");
+            System.out.println("Auto nosaukums: "+dealers.get(i).car.model+" Izlaiduma gads: "+dealers.get(i).car.year);
+            dealers.get(i).car.printExtras();
+        }
     }
 }

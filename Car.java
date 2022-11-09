@@ -12,6 +12,14 @@ public class Car {
         this.extras = extras;
     }
 
+    // Metodes
+
+    void printExtras(){
+        System.out.println("Auto ieklautas ektras");
+        for(int i =0; i<this.extras.size(); i++){
+            System.out.println(extras.get(i));
+        }
+    }
     public static void main(String args[]) {
 
     }
